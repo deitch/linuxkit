@@ -2,11 +2,11 @@ kernel:
   image: linuxkit/kernel:6.6.13-44a5293614ca7c7674013e928cb11dcdbba73ba8
   cmdline: "console=ttyS0 console=ttyAMA0"
 init:
-  - linuxkit/init:e120ea2a30d906bd1ee1874973d6e4b1403b5ca3
-  - linuxkit/runc:6062483d748609d505f2bcde4e52ee64a3329f5f
+  - linuxkit/init:f7f97ead95502c2632fa884dd32a393afa55bafa
+  - linuxkit/runc:b075ab467105ea77a903e4c25633476b5af02054
 onboot:
   - name: check-kernel-config
     image: linuxkit/test-kernel-config:be8e3d16646f3bc610304f9fe32a857e3e33f7b5
   - name: poweroff
-    image: linuxkit/poweroff:992d9c7531166fe071d945e8b2728d8b61eb8d5a
+    image: linuxkit/poweroff:5564fbf3693bb4ea8aba3b9d511d0ef6454f11a6
     command: ["/bin/sh", "/poweroff.sh", "3"]

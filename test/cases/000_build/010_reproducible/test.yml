@@ -3,13 +3,13 @@ kernel:
   image: linuxkit/kernel:6.6.13
   cmdline: "console=ttyS0"
 init:
-  - linuxkit/init:e120ea2a30d906bd1ee1874973d6e4b1403b5ca3
-  - linuxkit/runc:6062483d748609d505f2bcde4e52ee64a3329f5f
-  - linuxkit/containerd:39301e7312f13eedf19bd5d5551af7b37001d435
+  - linuxkit/init:f7f97ead95502c2632fa884dd32a393afa55bafa
+  - linuxkit/runc:b075ab467105ea77a903e4c25633476b5af02054
+  - linuxkit/containerd:f392a0c758cca9c2dcf5d60dec2399f49c8eb6f2
 
 onboot:
   - name: dhcpcd
-    image: linuxkit/dhcpcd:e9e3580f2de00e73e7b316a007186d22fea056ee
+    image: linuxkit/dhcpcd:b8317b466095586c6629edc71f4d490d61ff72cf
     command: ["/sbin/dhcpcd", "--nobackground", "-f", "/dhcpcd.conf", "-1"]
     # Add some random unsorted caps
     capabilities:
@@ -18,7 +18,7 @@ onboot:
 
 services:
   - name: testservice
-    image: linuxkit/ip:bb250017b05de5e16ac436b1eb19a39c87b5a252
+    image: linuxkit/ip:0e35c7176f889cfcd2a7bd11317907f797c5c9cb
     # Some environments
     env:
       - BENV=true

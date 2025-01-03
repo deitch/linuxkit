@@ -2,10 +2,10 @@ kernel:
   image: linuxkit/kernel:6.6.13
   cmdline: "console=ttyS0 console=ttyAMA0"
 init:
-  - linuxkit/init:e120ea2a30d906bd1ee1874973d6e4b1403b5ca3
-  - linuxkit/runc:6062483d748609d505f2bcde4e52ee64a3329f5f
-  - linuxkit/containerd:39301e7312f13eedf19bd5d5551af7b37001d435
-  - linuxkit/ca-certificates:5aaa343474e5ac3ac01f8b917e82efb1063d80ff
+  - linuxkit/init:f7f97ead95502c2632fa884dd32a393afa55bafa
+  - linuxkit/runc:b075ab467105ea77a903e4c25633476b5af02054
+  - linuxkit/containerd:f392a0c758cca9c2dcf5d60dec2399f49c8eb6f2
+  - linuxkit/ca-certificates:ec6a50d1d7110425b4b8d976647094b8d7b6c301
 services:
   - name: test
     image: alpine:3.13
