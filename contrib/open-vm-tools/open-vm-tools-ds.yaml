@@ -30,7 +30,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: linuxkit/open-vm-tools:728ddf726474178eea97604c0baeabd52edab7e9
+      - image: linuxkit/open-vm-tools:8595332ee750f49e4d6883f801b559920f1abb5b
         name: open-vm-tools
         resources:
           requests:

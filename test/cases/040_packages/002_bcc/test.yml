@@ -2,8 +2,8 @@ kernel:
   image: linuxkit/kernel:6.6.13
   cmdline: "console=ttyS0 console=ttyAMA0"
 init:
-  - linuxkit/init:e120ea2a30d906bd1ee1874973d6e4b1403b5ca3
-  - linuxkit/runc:6062483d748609d505f2bcde4e52ee64a3329f5f
+  - linuxkit/init:da8b633b6f6d0cb58b2302bd1ed54acee6d06245
+  - linuxkit/runc:01a2389b9e2ebbb4642d95ce16a2a309c2f46c33
   - linuxkit/kernel-bcc:5.4.113
 onboot:
   - name: check-bcc
@@ -17,7 +17,7 @@ onboot:
     capabilities:
       - all
   - name: poweroff
-    image: linuxkit/poweroff:401dc53c604c0b2179ed0369a6968fd4179cc176
+    image: linuxkit/poweroff:17dcd9167e1e0ca8dd6005ecbc1dd2e041e98cb9
     command: ["/bin/sh", "/poweroff.sh", "10"]
 files:
   - path: check.sh
