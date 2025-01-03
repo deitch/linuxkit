@@ -1,5 +1,5 @@
 # Dockerfile to build linuxkit/modprobe for linuxkit
-FROM linuxkit/alpine:146f540f25cd92ec8ff0c5b0c98342a9a95e479e AS mirror
+FROM linuxkit/alpine:d7d54c626d8c9bee72f31c2781c47b43811a26eb AS mirror
 
 RUN mkdir -p /out/etc/apk && cp -r /etc/apk/* /out/etc/apk/
 RUN apk add --no-cache --initdb -p /out \
