@@ -1,4 +1,4 @@
-# linuxkit/alpine:da21280cfab3fd7a98efcba069ad7f468ead76a6-amd64
+# linuxkit/alpine:6b67cce58e4f2899a537d2cc714bea319aeaab29-arm64
 # automatically generated list of installed packages
 abuild-3.14.1-r3
 abuild-sudo-3.14.1-r3
@@ -25,6 +25,7 @@ bcc-0.32.0-r0
 bcc-dev-0.32.0-r0
 binutils-2.43.1-r1
 binutils-dev-2.43.1-r1
+binutils-gold-2.43.1-r1
 bison-3.8.2-r1
 blkid-2.40.2-r4
 bridge-utils-1.7.1-r2
@@ -160,7 +161,6 @@ krb5-conf-1.0-r2
 krb5-dev-1.21.3-r0
 krb5-libs-1.21.3-r0
 krb5-server-ldap-1.21.3-r0
-lddtree-1.27-r0
 libaio-0.3.113-r2
 libarchive-3.7.7-r0
 libarchive-tools-3.7.7-r0
@@ -209,7 +209,6 @@ libmagic-5.46-r2
 libmenuw-6.5_p20241006-r3
 libmnl-1.0.5-r2
 libmount-2.40.2-r4
-libmspack-0.11_alpha-r1
 libncurses++-6.5_p20241006-r3
 libncursesw-6.5_p20241006-r3
 libnfsidmap-2.6.4-r3
@@ -283,8 +282,6 @@ lzo-2.10-r5
 m4-1.4.19-r3
 make-4.4.1-r2
 mcookie-2.40.2-r4
-mdev-conf-4.7-r0
-mkinitfs-3.11.1-r0
 mount-2.40.2-r4
 mpc1-1.3.1-r1
 mpc1-dev-1.3.1-r1
@@ -313,12 +310,6 @@ open-iscsi-2.1.10-r3
 open-iscsi-libs-2.1.10-r3
 open-iscsi-openrc-2.1.10-r3
 open-isns-lib-0.102-r2
-open-vm-tools-12.5.0-r0
-open-vm-tools-deploypkg-12.5.0-r0
-open-vm-tools-guestinfo-12.5.0-r0
-open-vm-tools-openrc-12.5.0-r0
-open-vm-tools-static-12.5.0-r0
-open-vm-tools-vmbackup-12.5.0-r0
 openntpd-6.8_p1-r9
 openntpd-openrc-6.8_p1-r9
 openrc-0.55.1-r2
@@ -331,7 +322,6 @@ openssh-server-common-9.9_p1-r2
 openssh-server-common-openrc-9.9_p1-r2
 openssl-3.3.2-r4
 openssl-dev-3.3.2-r4
-ovmf-0.0.202308-r2
 p11-kit-0.25.5-r2
 partx-2.40.2-r4
 patch-2.7.6-r10
@@ -366,6 +356,7 @@ qemu-guest-agent-9.1.2-r1
 qemu-guest-agent-openrc-9.1.2-r1
 qemu-img-9.1.2-r1
 qemu-ppc64le-9.1.2-r1
+qemu-system-aarch64-9.1.2-r1
 qemu-system-arm-9.1.2-r1
 qemu-system-x86_64-9.1.2-r1
 readline-8.2.13-r0
@@ -396,7 +387,6 @@ squashfs-tools-4.6.1-r1
 ssl_client-1.37.0-r9
 strace-6.12-r0
 swig-4.3.0-r0
-syslinux-6.04_pre1-r16
 talloc-2.4.2-r1
 tar-1.35-r2
 tcl-8.6.15-r0
