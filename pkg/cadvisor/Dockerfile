@@ -7,7 +7,7 @@ RUN [ $(uname -m) = aarch64 ] && apk add --no-cache gcc || true
 ENV GOPATH=/go PATH=$PATH:/go/bin
 ENV GITBASE=github.com/google
 ENV GITREPO=github.com/google/cadvisor
-ENV COMMIT=v0.36.0
+ENV COMMIT=v0.51.0
 
 ADD /static.patch /tmp/
 
@@ -18,7 +18,7 @@ RUN mkdir -p /go/src/${GITBASE} \
     && git checkout ${COMMIT} \
     && patch -p1 build/build.sh </tmp/static.patch \
     && make build \
-    && mv cadvisor /usr/bin/
+    && mv _output/cadvisor /usr/bin/
 
 
 FROM linuxkit/alpine:3fb2ec0c94ed30171bb04100f568bba2ebb648a9 AS mirror
