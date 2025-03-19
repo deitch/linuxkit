@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"path/filepath"
+	"regexp"
 	"time"
 
 	"github.com/google/uuid"
@@ -14,6 +15,10 @@ import (
 	"github.com/spdx/tools-golang/spdx"
 	spdxcommon "github.com/spdx/tools-golang/spdx/v2/common"
 	spdxversion "github.com/spdx/tools-golang/spdx/v2/v2_3"
+)
+
+var (
+	packageSourceRE = regexp.MustCompile(`(acquired package info from .*: )(.+)$`)
 )
 
 // SbomGenerator handler for generating sbom
@@ -49,10 +54,26 @@ func (s *SbomGenerator) Add(prefix string, sbom io.ReadCloser) error {
 
 	// change any paths to include the prefix
 	for i := range doc.Files {
-		doc.Files[i].FileName = filepath.Join(prefix, doc.Files[i].FileName)
+		if doc.Files[i].FileName != "" {
+			doc.Files[i].FileName = filepath.Join(prefix, doc.Files[i].FileName)
+		}
 	}
 	for i := range doc.Packages {
-		doc.Packages[i].PackageFileName = filepath.Join(prefix, doc.Packages[i].PackageFileName)
+		// ensure that the packageFileName has the prefix, but only if not empty
+		if doc.Packages[i].PackageFileName != "" {
+			doc.Packages[i].PackageFileName = filepath.Join(prefix, doc.Packages[i].PackageFileName)
+		}
+		// ensure the the sourceInfo has the prefix, but only if not empty
+		// it is important to follow the pattern, which usually has: "acquired package info from .*: <path>"
+		if doc.Packages[i].PackageSourceInfo != "" {
+			doc.Packages[i].PackageSourceInfo = packageSourceRE.ReplaceAllStringFunc(doc.Packages[i].PackageSourceInfo, func(match string) string {
+				submatches := packageSourceRE.FindStringSubmatch(match)
+				if len(submatches) < 3 {
+					return match
+				}
+				return submatches[1] + filepath.Clean(filepath.Join(prefix, submatches[2]))
+			})
+		}
 		// we should need to add the prefix to each of doc.Packages[i].Files[], but those are pointers,
 		// so they point to the actual file structs we handled above
 	}
